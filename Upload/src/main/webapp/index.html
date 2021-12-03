@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>Document</title>
+   <link rel="stylesheet" href="static/css/dropzone.min.css">
+ </head>
+ <body>
+ <form method="post" >
+ 	<input type="file" name="file" >
+ 	<input type="submit">
+ </form>
+
+ <script type="text/javascript" src="static/js/dropzone.min.js"></script> 
+
+<script>
+	let form = document.forms[0];
+	var xmlhttp = null;
+	document.getElementById('btn').addEventListener('click',()=>{
+		 xmlhttp = new XMLHttpRequest;
+		    xmlhttp.open("post", "act.do", true);
+		    xmlhttp.onreadystatechange = handleResponse;
+		    xmlhttp.send();
+		    function handleResponse() {
+		        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		            console.log(xmlhttp.responseText);
+
+		        }
+		    }
+		}
+	);
+
+/*	
+				Dropzone.autoDiscover = false;
+
+				Dropzone.options.bpic = {
+					paramName: 'file',
+					maxFilesize: 1,
+					uploadMultiple: false,
+					createImageThumbnails: true,
+					maxFiles: 1,
+					acceptedFiles: '.jpeg,.png,.gif,.jpg',
+					addRemoveLinks: true,
+					autoProcessQueue: true
+				};
+
+	
+		let dropzone = new Dropzone('#picup', {url: 'act.do'});
+
+		let btn = document.querySelector('#btn');
+		btn.addEventListener('click',()=>{		
+			dropzone.processQueue();
+			document.querySelector('#institute_logo').style.display = 'none'; 
+		});*/
+</script>
+ 
+ </body>
+</html>
